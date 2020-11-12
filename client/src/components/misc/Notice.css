@@ -1,0 +1,21 @@
+.notice{
+    color: white;
+    height: 2em;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.notice span{
+    margin-left: 20px;
+}
+.error{
+    background-color: #9a0b0b;
+}
+.clear-notice{
+    margin-left: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.succes{
+background-color: green;
+}

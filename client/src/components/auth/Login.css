@@ -1,0 +1,16 @@
+
+.login-container{
+  width: 50%;
+  height: auto;
+  background-color: whitesmoke;
+  margin: 0 auto;
+  margin-top: 70px;
+  padding:30px 80px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .login-container{
+    width: 80%;
+    min-width: 360px;
+  }
+}
