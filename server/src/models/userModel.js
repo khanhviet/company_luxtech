@@ -8,9 +8,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 5
-    },
-    disPlayName: {
-        type: String
     }
 })
 

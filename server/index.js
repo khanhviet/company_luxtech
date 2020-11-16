@@ -18,4 +18,4 @@ mongoose.connect(process.env.MOGOOSE_CONNECTION_STRING, {
 //set up router
 app.use("/users", require('./src/controllers/routes/user/Login'))
 app.use("/users", require('./src/controllers/routes/user/Register'))
-app.use('/users', require('./src/controllers/routes/pages/Home'))
+app.use('/', require('./src/controllers/routes/pages/Home'))

@@ -1,23 +1,21 @@
-import './Login.css';
 import React, { useContext, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
-import LoginContext from '../../contexts/loginContext';
+import { LoginContext } from '../../contexts/LoginContext';
 import Notice from '../misc/Notice'
+import './Login.css';
 export default function Login() {
     const { register, errors, handleSubmit } = useForm();
     const history = useHistory();
-    const { setUserData } = useContext(LoginContext);
+    const { setIsAuthenticated } = useContext(LoginContext);
     const [notice, setNotice] = useState();
     const [type, setType] = useState();
     const submit = async (obj, e) => {
         try {
             e.preventDefault();
             const loginRes = await Axios.post('http://localhost:5000/users/login', obj)
-            setUserData({
-                token: loginRes.data.token
-            });
+            setIsAuthenticated(true);
             localStorage.setItem('auth-token', loginRes.data.token);
             setNotice('thành công');
             setType('sucess');

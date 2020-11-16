@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react'
-import Context from '../../contexts/loginContext'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
+import { LoginContext } from '../../contexts/LoginContext'
 export default function Home() {
-    const { userData } = useContext(Context)
-    return (
+    const { isAuthenticated } = useContext(LoginContext)
+    return isAuthenticated ? (
         <div>
-            {
-                userData.token ? <div>
-                    <h1>Welcome to back</h1>
-                </div> : <div>đăng nhập thất bại</div>
-            }
-        </div>
-
-    )
+            <h1>Welcome to back</h1>
+        </div>) : (<div>đăng nhập thất bại</div>
+        )
 }
