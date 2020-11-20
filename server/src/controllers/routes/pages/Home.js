@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const auth = require('../../middleware/auth');
 router.get("/", auth, async (req, res) => {
-    console.log('arrr; ')
     const user = await User.findById(req.user);
     console.log(user);
     res.json({
@@ -10,3 +9,6 @@ router.get("/", auth, async (req, res) => {
     });
 })
 module.exports = router;
+
+
+// nhap email , kt email => gui ve email + token ramdom link/token , user nhan link./toekn   

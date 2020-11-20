@@ -1,0 +1,9 @@
+.title-author{
+    text-align: center;
+    margin: 50px 0;
+}
+.author-container-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

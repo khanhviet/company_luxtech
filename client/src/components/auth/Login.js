@@ -2,27 +2,29 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Axios from 'axios';
-import { LoginContext } from '../../contexts/LoginContext';
+import { LoginContext } from '../../contexts/loginContext';
 import Notice from '../misc/Notice'
 import './Login.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser, isAuthenticated } from '../../features/user/UserSlice';
 export default function Login() {
     const { register, errors, handleSubmit } = useForm();
     const history = useHistory();
-    const { setIsAuthenticated } = useContext(LoginContext);
+    const hasToken = useSelector(selectUser);
+    const dispatch = useDispatch();
     const [notice, setNotice] = useState();
     const [type, setType] = useState();
     const submit = async (obj, e) => {
         try {
             e.preventDefault();
-            const loginRes = await Axios.post('http://localhost:5000/users/login', obj)
-            setIsAuthenticated(true);
+            const loginRes = await Axios.post('http://localhost:7000/users/login', obj)
             localStorage.setItem('auth-token', loginRes.data.token);
             setNotice('thành công');
             setType('sucess');
+            dispatch(isAuthenticated());
             history.push('/');
         }
         catch (err) {
-            debugger;
             err.response.data.msg && setNotice(err.response.data.msg);
             setType('error');
         }

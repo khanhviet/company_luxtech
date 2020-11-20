@@ -13,7 +13,7 @@ const Sign = () => {
 
         e.preventDefault();
         try {
-            await Axios.post('http://localhost:5000/users/register', obj);
+            await Axios.post('http://localhost:7000/users/register', obj);
             setType('succes')
 
             setNotice('Đăng nhập thành công');

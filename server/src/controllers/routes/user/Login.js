@@ -34,6 +34,7 @@ router.post('/login', async (req, res) => {
                 username: user.username
             }
         });
+        console.log('okay')
 
     } catch (error) {
         res.status(400).send(error.message)
